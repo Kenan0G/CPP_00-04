@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:57:15 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/09/18 13:54:15 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/09/18 14:45:10 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	Contact::set_first_name()
 
 	std::cout << "Quel est le prenom du contact ?" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+			exit(0);
 	this->m_first_name = input;
 }
 
@@ -37,6 +39,8 @@ void	Contact::set_last_name()
 
 	std::cout << "Quel est le nom du contact ?" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+			exit(0);
 	this->m_last_name = input;
 }
 
@@ -46,6 +50,8 @@ void	Contact::set_nickname()
 
 	std::cout << "Quel est le surnom du contact ?" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+			exit(0);
 	this->m_nickname = input;
 }
 
@@ -55,6 +61,8 @@ void	Contact::set_phone_number()
 
 	std::cout << "Quel est le numero de telephone du contact ?" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+			exit(0);
 	this->m_phone_number = input;
 }
 
@@ -64,6 +72,8 @@ void	Contact::set_secret()
 
 	std::cout << "Quel est le secret du contact ?" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+			exit(0);
 	this->m_secret = input;
 }
 

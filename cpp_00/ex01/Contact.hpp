@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:57:23 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/09/18 12:29:37 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/09/18 14:15:59 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ class Contact
 	std::string	m_nickname;
 	std::string	m_phone_number;
 	std::string	m_secret;
-
 };
 
 

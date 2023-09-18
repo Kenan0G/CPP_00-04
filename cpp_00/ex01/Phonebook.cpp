@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 15:11:22 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/09/18 13:54:02 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/09/18 14:43:28 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	Phonebook::chose_contact()
 
 	while (check)
 	{	
-		std::cout << "Veuillez choisir entre un contact entre 1 et 8" << std::endl;
+		std::cout << "Veuillez choisir un contact entre 1 et 8" << std::endl;
 		std::getline(std::cin, input);
 		if (std::cin.eof())
 			exit(0);
@@ -66,4 +66,5 @@ void	Phonebook::remplir_contact(int index)
 	m_contact[index].set_nickname();
 	m_contact[index].set_phone_number();
 	m_contact[index].set_secret();
+	afficher_menu();
 }
