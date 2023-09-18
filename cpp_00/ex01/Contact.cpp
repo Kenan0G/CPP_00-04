@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:57:15 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/09/15 18:34:37 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/09/18 13:54:15 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,6 @@ Contact::Contact() : m_first_name(""), m_last_name(""),
 
 Contact::~Contact()
 {
-}
-
-void	Contact::display_contact() const
-{
-	std::string test;
-	int			i(0);
-
-	if (m_first_name.length() <= 10)
-	{
-		std::cout << m_first_name;
-		i = m_first_name.length();
-		while (i < 10)
-			std::cout << " ";
-	}
-	else
-	{
-		while (i < 10)
-			std::cout << m_first_name[i];
-	}
-	std::cout << "|"
-
-	// adapter cette fonction pour au'elle fontionne pour tout les attributs
-
-		
-	// std:/:cout << "first name = " << m_first_name << std::endl
-	//  << /"last_name = " << m_last_name << std::endl
-	//  << /"nickname = " << m_nickname << std::endl
-	//  << /"phone_number = " << m_phone_number << std::endl
-	//  << /"secret = " << m_secret << std::endl;
 }
 
 void	Contact::set_first_name()
@@ -95,3 +66,80 @@ void	Contact::set_secret()
 	std::getline(std::cin, input);
 	this->m_secret = input;
 }
+
+void	Contact::display_contact()
+{
+	int	i(0);
+
+	std::cout << "_____________ PHONEBOOK ______________" << std::endl;
+	std::cout << "INDEX|FIRST_NAME|LAST_NAME | NICKNAME |" << std::endl;
+	std::cout << "_____|__________|__________|__________|" << std::endl;
+	while (i < 8)
+	{
+		std::cout << std::right << std::setw(4) << i + 1 << ".|";
+		display_contact_2(this[i].m_first_name, 0);
+		display_contact_2(this[i].m_last_name, 0);
+		display_contact_2(this[i].m_nickname, 0);
+		std::cout << std::endl; 
+		i++;
+	}
+}
+
+void	Contact::display_contact_2(std::string info, int j)
+{
+
+	if (info.length() > 10)
+		std::cout << std::right << std::setw(8) << info.substr(0, 9) << ".";
+	else
+		std::cout << std::right << std::setw(10) << info.substr(0, 10);
+	if (j == 0)
+		std::cout << "|";
+}
+
+int		Contact::display_informations()
+{
+	std::cout << "--- First_name ---" << std::endl << this->m_first_name << std::endl;
+	std::cout << "--- Last_name ---" << std::endl << this->m_last_name << std::endl;
+	std::cout << "--- Nickname ---" << std::endl << this->m_nickname << std::endl;
+	std::cout << "--- Phone_number ---" << std::endl << this->m_phone_number << std::endl;
+	std::cout << "--- Secret ---" << std::endl << this->m_secret << std::endl;
+	return (0);
+}
+
+// void	Contact::display_contact_2(std::string info, int j) const
+// {
+// 	std::string test;
+// 	int			i(0);
+
+// 	if (info.length() <= 10)
+// 	{
+// 		while (info[i])
+// 		{
+// 			if (info[i] == '\t')
+// 				std::cout << " ";
+// 			else	
+// 				std::cout << info[i];
+// 			i++;
+// 		}
+// 		// i = info.length();
+// 		while (i < 10)
+// 		{
+// 			std::cout << " ";
+// 			i++;
+// 		}
+// 	}
+// 	else
+// 	{
+// 		while (i < 9)
+// 		{
+// 			if (info[i] == '\t')
+// 				std::cout << " ";
+// 			else	
+// 				std::cout << info[i];
+// 			i++;
+// 		}
+// 		std::cout << ".";
+// 	}
+// 	if (j == 0)
+// 		std::cout << "|";
+// }

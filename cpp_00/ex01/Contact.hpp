@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:57:23 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/09/15 18:15:27 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/09/18 12:29:37 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include <iostream>
 # include <string>
-
+#include <iomanip>
+#include <iostream>
+#include <locale>
 
 // ma classe Contact
 class Contact
@@ -25,7 +27,9 @@ class Contact
 	Contact();			// le constructeur
 	~Contact();			// le destructeur
 
-	void	display_contact() const;
+	void	display_contact();
+	void	display_contact_2(std::string inf, int j);
+	int		display_informations();
 	void	set_phone_number();
 	void	set_first_name();
 	void	set_last_name();

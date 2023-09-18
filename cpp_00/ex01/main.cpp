@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 15:40:36 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/09/15 18:25:02 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/09/18 13:40:13 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	main()
 	{
 		std::cout << "Que voulez vous faire ?" << std::endl;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+		            exit(0);
 		if (!input.compare("ADD"))
 		{
 			if (i == 8)
@@ -33,17 +35,16 @@ int	main()
 			i++;
 		}
 		else if (!input.compare("SEARCH"))
+			phonebook_1.search();
 	}
-	std::cout << "sorti de boucle" << std::endl;
-
 	return (0);	
 }
 
 void	afficher_menu(void)
 {
-	std::cout << "-------- PHONEBOOK --------" << std::endl << std::endl;
-	std::cout << "ADD 	: to add  an contact" << std::endl;
-	std::cout << "SEARCH 	: to search a contact" << std::endl;
-	std::cout << "EXIT 	: to exit" << std::endl;
+	std::cout << "________________ PHONEBOOK _________________" << std::endl;
+	std::cout << "ADD 	: pour ajouter un contact" << std::endl;
+	std::cout << "SEARCH 	: pour chercher un contact" << std::endl;
+	std::cout << "EXIT 	: pour quitter" << std::endl << std::endl;
 	
 }
