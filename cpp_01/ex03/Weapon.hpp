@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 14:06:48 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/09/20 10:09:52 by kgezgin          ###   ########.fr       */
+/*   Created: 2023/09/20 11:33:20 by kgezgin           #+#    #+#             */
+/*   Updated: 2023/09/20 12:38:24 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_H
+# define WEAPON_H
+# include<iostream>
+# include<string>
 
-int main()
+class Weapon
 {
-    Zombie zombie("christiano");
-    zombie.announce();
-    zombie.randomChump("ronaldo");
+private:
+	std::string			type;
+public:
+	Weapon(std::string weapon_type);
+	Weapon();
+	~Weapon();
+	const std::string	getType();
+	void				setType(std::string new_type);
+};
 
-	int		i(0);
-	Zombie	*horde;
-	horde = zombie.zombieHorde(10, "zomblar");
-	while (i < 10)
-	{
-		horde[i].announce();
-		i++;
-	}
-	delete[] horde;
-    return (0);
-}
+#endif

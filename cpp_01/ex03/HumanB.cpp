@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 14:06:48 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/09/20 10:09:52 by kgezgin          ###   ########.fr       */
+/*   Created: 2023/09/20 11:55:02 by kgezgin           #+#    #+#             */
+/*   Updated: 2023/09/20 14:55:00 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-int main()
+HumanB::HumanB(std::string new_name) : name(new_name)
 {
-    Zombie zombie("christiano");
-    zombie.announce();
-    zombie.randomChump("ronaldo");
+}
 
-	int		i(0);
-	Zombie	*horde;
-	horde = zombie.zombieHorde(10, "zomblar");
-	while (i < 10)
+HumanB::~HumanB()
+{
+}
+
+void	HumanB::attack(void)
+{
+	if (!this->weapon)
 	{
-		horde[i].announce();
-		i++;
+		std::cout << "no weapon set" << std::endl;
 	}
-	delete[] horde;
-    return (0);
+	else
+		std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+}
+
+void	HumanB::setWeapon(Weapon &weapon)
+{
+	this->weapon = &weapon;
 }
