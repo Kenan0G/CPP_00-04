@@ -6,92 +6,67 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:17:10 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/09/20 17:07:48 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/09/22 18:43:13 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <iostream>
 # include <string>
-# include <unistd.h>
+# include <fstream>
+# include <iostream>
 
-int		ft_open(char *file)
+void	sed(std::string in, std::string s1, std::string s2)
 {
-	int	fd;
-
-	fd = open(file, O_RDWR);
-	if (fd <= 0)
+	size_t		find_pos;
+	std::string	line;
+	int			i(0);
+	std::ifstream infile(in.c_str(), std::ios_base::in);
+	if (!infile.is_open())
 	{
-		perror(file);
-		exit(EXIT_FAILURE);
+		std::cerr << "Error while opening infile" << std::endl;
+		exit(1);
 	}
-	return (fd);
-}
-
-int		ft_open_replace(char *file)
-{
-	int			fd;
-	std::string	temp(file);
-	std::string	temp_2(".replace");
-
-	temp = temp + temp_2;
-	
-	printf("%s\n", temp.c_str());
-	fd = open(temp.c_str(), O_CREAT | O_RDWR);
-	if (fd <= 0)
+	std::string	out(in + ".replace");
+	std::ofstream outfile(out, std::ios_base::out);
+	if (!outfile.is_open())
 	{
-		perror(temp.c_str());
-		exit(EXIT_FAILURE);
+		std::cerr << "Error while opening outfile" << std::endl;
+		exit(1);
 	}
-	return (fd);
-}
-
-
-void	run_program(char **av)
-{
-	int				fd;
-	int				fd_replace;
-	unsigned long	i;
-	char			*buf;
-	int				check;
-	// int			s1_size;
-	// int			s2_size;
-	std::string		s1(av[2]);
-	std::string		s2(av[3]);
-
-	check = 0;
-	i = 0;
-	buf = NULL;
-	fd = ft_open(av[1]);
-	fd_replace = ft_open_replace(av[1]);
-	while (check > 0)
+	find_pos = 0;
+	while (infile.eof() == false)
 	{
-		check = read(fd, buf, 1);
-		printf("buf = [%s]\n", buf);
-		if (buf && buf[0] == s1.c_str()[0])
+		std::getline(infile, line);
+		find_pos = 0;
+		if (i > 0)
+			outfile << std::endl;
+		while (find_pos != std::string::npos)
 		{
-			check = read(fd, buf, s1.size());
-			printf("test : buf = [%s]\n", buf);
-			if (s1.compare(buf) == 0)
-			{
-				write(fd_replace, s2.c_str(), s2.size());
-				while (i < s1.size())
-				{
-					check = read(fd, buf, 1);	
-					i++;
-				}
-			}
-			else
-				write(fd_replace, buf, 1);
+			find_pos = line.find(s1, 0);
+			if (find_pos == std::string::npos)
+				break ;
+			line.erase(find_pos, s1.length());
+			line.insert(find_pos, s2);
+			
 		}
+		outfile << line;
+		i++;
 	}
 }
 
 int	main(int ac, char **av)
 {
 	if (ac == 4)
-		run_program(av);
+	{
+		std::string	infile(av[1]);
+		std::string	s1(av[2]);
+		std::string	s2(av[3]);
+		if (s1.empty() || s2.empty())
+		{
+			std::cout << "error, string NULL" << std::endl;
+			exit(1);
+		}
+		sed(infile, s1, s2);
+	}
 	else
 		std::cout<< "le nombre d'arguments n'est pas bon";
 	return (0);
