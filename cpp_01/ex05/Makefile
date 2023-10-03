@@ -6,13 +6,13 @@
 #    By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 14:07:37 by kgezgin           #+#    #+#              #
-#    Updated: 2023/09/29 13:44:27 by kgezgin          ###   ########.fr        #
+#    Updated: 2023/10/03 12:47:05 by kgezgin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp
+SRCS = main.cpp Harl.cpp
 
-NAME = sed
+NAME = Harl
 
 ########################### COMPILATION AND FLAGS ###########################
 
