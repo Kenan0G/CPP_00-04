@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:06:48 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/09/18 16:32:42 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/10/06 17:04:24 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int main()
 {
-    Zombie zombie("helllooo");
-    zombie.announce();
-    zombie.randomChump("Night Cityyy !!");
-
+    Zombie *zombie;
+	zombie = NewZombie("Goku");
+	zombie->announce();
+    randomChump("Vegeta");
+	delete (zombie);
     return (0);
 }

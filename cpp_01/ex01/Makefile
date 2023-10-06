@@ -6,11 +6,11 @@
 #    By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 14:07:37 by kgezgin           #+#    #+#              #
-#    Updated: 2023/09/18 15:31:00 by kgezgin          ###   ########.fr        #
+#    Updated: 2023/10/06 17:09:14 by kgezgin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
+SRCS = main.cpp zombieHorde.cpp Zombie.cpp
 
 NAME = BraiiiiiiinnnzzzZ
 
