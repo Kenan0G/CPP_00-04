@@ -6,7 +6,7 @@
 #    By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 14:35:13 by kgezgin           #+#    #+#              #
-#    Updated: 2023/09/15 15:13:01 by kgezgin          ###   ########.fr        #
+#    Updated: 2023/10/10 17:00:14 by kgezgin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = megaphone
 ########################### COMPILATION AND FLAGS ###########################
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 ##################################### COLOR ##################################
 

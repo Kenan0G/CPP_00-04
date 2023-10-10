@@ -6,7 +6,7 @@
 #    By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 14:07:37 by kgezgin           #+#    #+#              #
-#    Updated: 2023/10/06 17:09:14 by kgezgin          ###   ########.fr        #
+#    Updated: 2023/10/10 16:09:20 by kgezgin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = BraiiiiiiinnnzzzZ
 ########################### COMPILATION AND FLAGS ###########################
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 ##################################### COLOR ##################################
 

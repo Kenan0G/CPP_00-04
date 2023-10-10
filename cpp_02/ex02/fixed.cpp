@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:54:48 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/10/09 17:25:00 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/10/10 15:25:44 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ const int Fixed::fractionalBit = 8;
 // forme canonique : constructeur par default, constructeur par copie, surcharge operateur =, destructeur
 Fixed::Fixed() : value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	if (this != &other)
 		*this = other;
 }
 
 Fixed	&Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		value = other.getRawBits();
 	return (*this);
@@ -38,7 +38,7 @@ Fixed	&Fixed::operator=(const Fixed &other)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 
@@ -46,13 +46,13 @@ Fixed::~Fixed()
 // constructeurs avec int ou float
 Fixed::Fixed(const int nb)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	value = nb << fractionalBit;
 }
 
 Fixed::Fixed(const float nb)
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	value = static_cast<int>(roundf(nb * (1 << fractionalBit))); // Calcul du nombre entier à partir du flottant
 }
 
@@ -61,7 +61,7 @@ Fixed::Fixed(const float nb)
 // get and set
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return (value);
 }
 
@@ -141,7 +141,7 @@ Fixed	Fixed::operator*(const Fixed &other)
 {
 	Fixed res;
 
-	res.value = this->value * other.value;
+	res.value = (this->toFloat() * other.toFloat() * (1 << Fixed::fractionalBit));
 	return (res);
 }
 
@@ -149,7 +149,7 @@ Fixed	Fixed::operator/(const Fixed &other)
 {
 	Fixed res;
 
-	res.value = this->value / other.value;
+	res.value = (this->toFloat() / other.toFloat() * (1 << Fixed::fractionalBit));
 	return (res);
 }
 
@@ -159,13 +159,13 @@ Fixed	Fixed::operator/(const Fixed &other)
 // pre-incrementation
 Fixed	&Fixed::operator++(void)
 {
-	--this->value;
+	++this->value;
 	return (*this);
 }
 
 Fixed	&Fixed::operator--(void)
 {
-	++this->value;
+	--this->value;
 	return (*this);
 }
 
@@ -174,7 +174,7 @@ Fixed	Fixed::operator++(int)
 {
 	Fixed	temp(*this);
 
-	(this->value)++;
+	++(this->value);
 	return (temp);
 }
 
@@ -182,7 +182,7 @@ Fixed	Fixed::operator--(int)
 {
 	Fixed	temp(*this);
 
-	(this->value)++;
+	--(this->value);
 	return (temp);
 }
 
