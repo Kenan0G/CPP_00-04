@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 10:46:07 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/10/11 18:56:40 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/10/11 19:12:44 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "ClapTrap constructor called" << std::endl;
-	this->attackPoints = 0;
-	this->hitPoints = 10;
-	this->energyPoints = 10;
+	std::cout << "ClapTrap Constructor called" << std::endl;
+	this->attackPoints = 30;
+	this->hitPoints = 100;
+	this->energyPoints = 100;
 }
 
 ClapTrap::ClapTrap(std::string newname) : name(newname)
 {
-	std::cout << "ClapTrap constructor called" << std::endl;
-	this->attackPoints = 0;
-	this->hitPoints = 10;
-	this->energyPoints = 10;
+	std::cout << "ClapTrap Constructor called" << std::endl;
+	this->attackPoints = 30;
+	this->hitPoints = 100;
+	this->energyPoints = 100;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
-	std::cout << "ClapTrap Copy constructor called" << std::endl;
+	std::cout << "Claptrap Copy constructor called" << std::endl;
 	if (this != &other)
 		*this = other;
 }
@@ -101,6 +101,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	if (hitPoints <= 0)
 		std::cout << "no hitpoints left for " << name << std::endl;
 }
+
 
 void	ClapTrap::attack(const std::string &target)
 {

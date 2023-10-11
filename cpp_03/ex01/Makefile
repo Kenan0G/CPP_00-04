@@ -6,11 +6,11 @@
 #    By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/11 10:26:16 by kgezgin           #+#    #+#              #
-#    Updated: 2023/10/11 18:37:18 by kgezgin          ###   ########.fr        #
+#    Updated: 2023/10/11 18:37:30 by kgezgin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 NAME = ClapTrap
 
