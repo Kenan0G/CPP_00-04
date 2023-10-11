@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:17:10 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/10/10 17:02:42 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/10/11 11:14:33 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 		std::string	infile(av[1]);
 		std::string	s1(av[2]);
 		std::string	s2(av[3]);
-		if (s1.empty() || s2.empty())
+		if (s1.empty()) // || s2.empty())
 		{
 			std::cout << "error, string NULL" << std::endl;
 			return 1;
