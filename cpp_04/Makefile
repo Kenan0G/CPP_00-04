@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/18 14:07:37 by kgezgin           #+#    #+#              #
-#    Updated: 2023/10/12 09:33:21 by kgezgin          ###   ########.fr        #
+#    Created: 2023/10/12 09:41:23 by kgezgin           #+#    #+#              #
+#    Updated: 2023/10/12 09:41:35 by kgezgin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp Harl.cpp
+SRCS = main.cpp
 
-NAME = Harl
+NAME = 
 
 ########################### COMPILATION AND FLAGS ###########################
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
+CFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 
 ##################################### COLOR ##################################
 

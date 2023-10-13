@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:17:10 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/10/11 11:14:33 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/10/12 09:31:07 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	sed(std::string in, std::string s1, std::string s2)
 			else
 			{
 				newLine += line.substr(pos);
-				break; 
+				break;
 			}
 		}
 		outfile << newLine << std::endl;
