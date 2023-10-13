@@ -6,43 +6,42 @@
 #    By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/12 09:41:23 by kgezgin           #+#    #+#              #
-#    Updated: 2023/10/12 09:41:35 by kgezgin          ###   ########.fr        #
+#    Updated: 2023/10/13 17:01:13 by kgezgin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp
+OBJS_DIR = objs
 
-NAME = 
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp\
 
-########################### COMPILATION AND FLAGS ###########################
+OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
+
+NAME = animals
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98  #-g -fsanitize=address
 
-##################################### COLOR ##################################
-
-COLOUR_PURPLE = \033[0;35m
-COLOUR_END = \033[0m
-
-##################################### MAIN ###################################
 
 all: $(NAME)
 
-##################################### MANDATORY ##############################
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -MMD -o $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
-	@echo "\n\t$(COLOUR_PURPLE)***EXECUTABLE CREATED SUCCESSFULL***\n\n$(COLOUR_END)"
+$(OBJS_DIR)/%.o : %.cpp | $(OBJS_DIR)
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+$(OBJS_DIR):
+	mkdir -p $@
 
 clean:
 	rm -rf $(OBJS) $(OBJS_DIR) $(DEPS)
-	@echo "\t$(COLOUR_PURPLE)OBJECT DIRECTORY CREATED\n\n$(COLOUR_END)"
 
 fclean: clean
 	rm -rf $(NAME)
-	@echo "\t$(COLOUR_PURPLE)DELETE EXECUTABLE SUCCESSFULL\n\n$(COLOUR_END)"
 
 re: fclean
 	make all
 
-.PHONY: all clean fclean norm re
+.PHONY: all clean fclean re
+
+-include $(DEPS)
