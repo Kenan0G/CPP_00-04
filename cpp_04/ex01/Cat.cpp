@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 13:09:08 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/10/13 17:00:03 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/10/20 17:29:46 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ Cat	&Cat::operator=(const Cat &other)
 	if (this != &other)
 	{
 		type = other.type;
+		if (brain)
+			delete brain;
+		std::cout << "test" << std::endl;
+		brain = new Brain((*other.brain));
 	}
 	return (*this);
 }

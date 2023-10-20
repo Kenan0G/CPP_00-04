@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 14:23:22 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/10/13 17:00:10 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/10/20 17:32:23 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,14 @@ Dog	&Dog::operator=(const Dog &other)
 	if (this != &other)
 	{
 		type = other.type;
+		if (brain)
+			delete brain;
+		std::cout << "test" << std::endl;
+		brain = new Brain((*other.brain));
 	}
 	return (*this);
 }
+
 
 Dog::~Dog()
 {
