@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 09:41:39 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/10/20 17:31:09 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/11/08 10:38:43 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,9 @@ int main()
 	}
 	for (int i = 0; i < 10; i++)
 		animals[i]->makeSound();
-	Cat b;
-	Cat c;
-	c = b;
+
 	for (int i = 0; i < 10; i++)
 		delete animals[i];
+
 	return 0;
 }

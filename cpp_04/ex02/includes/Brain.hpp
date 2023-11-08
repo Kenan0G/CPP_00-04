@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:15:12 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/10/13 16:17:15 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/11/08 10:29:36 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ class	Brain
 		Brain			&operator=(const Brain &other);
 
 	private:
-		std::string		ideas[100];
+		std::string		*ideas;
 };

@@ -6,9 +6,12 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 13:09:08 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/10/13 17:00:03 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/11/08 10:28:35 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "includes/Cat.hpp"
+#include "includes/Brain.hpp"
 
 #include "includes/Cat.hpp"
 #include "includes/Brain.hpp"
@@ -31,6 +34,7 @@ Cat	&Cat::operator=(const Cat &other)
 	if (this != &other)
 	{
 		type = other.type;
+		brain = new Brain((*other.brain));
 	}
 	return (*this);
 }
@@ -38,7 +42,7 @@ Cat	&Cat::operator=(const Cat &other)
 Cat::~Cat()
 {
 	delete brain;
-	std::cout << "Cat Destructor called on " << type << std::endl;
+	std::cout << "Cat Is Destroyed" << std::endl;
 }
 
 void	Cat::makeSound(void) const

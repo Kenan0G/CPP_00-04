@@ -6,7 +6,7 @@
 #    By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/12 09:41:23 by kgezgin           #+#    #+#              #
-#    Updated: 2023/10/13 17:01:13 by kgezgin          ###   ########.fr        #
+#    Updated: 2023/11/08 09:31:12 by kgezgin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 NAME = animals
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98  #-g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3 # -fsanitize=address
 
 
 all: $(NAME)

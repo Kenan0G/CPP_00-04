@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 09:41:39 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/10/13 17:28:24 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/11/08 10:33:29 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,6 @@
 #include "includes/Dog.hpp"
 #include "includes/Cat.hpp"
 
-// int main()
-// {
-// 	const Animal* meta = new Animal();
-// 	const Animal* j = new Dog();
-// 	const Animal* i = new Cat();
-	
-// 	std::cout << j->getType() << " " << std::endl;
-// 	std::cout << i->getType() << " " << std::endl;
-// 	i->makeSound(); //will output the cat sound!
-// 	j->makeSound();
-// 	meta->makeSound();
-// 	delete i;
-// 	delete j;
-// 	delete meta;
-// 	return 0;
-// }
 
 int main()
 {
